@@ -15,25 +15,32 @@ class DogApp extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              DecoratedBox(
-                decoration: BoxDecoration(color: Colors.lightBlueAccent),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text('Rocky'),
-                ),
-              ),
+              DogName('Ricky'),
               SizedBox(height: 8.0),
-              DecoratedBox(
-                decoration: BoxDecoration(color: Colors.lightBlueAccent),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text('Murphy'),
-                ),
-              )
+              DogName('Murphy'),
+              SizedBox(height: 8.0),
+              DogName('Hsieh')
             ],
           ),
         ),
       ),
     );
+  }
+}
+
+class DogName extends StatelessWidget {
+  final String name;
+
+  const DogName(this.name);
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return DecoratedBox(
+        decoration: BoxDecoration(color: Colors.lightBlueAccent),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(name),
+        ));
   }
 }
