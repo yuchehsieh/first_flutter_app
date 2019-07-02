@@ -20,6 +20,7 @@ class _MyAppState extends State<MyApp> {
     // TODO: implement build
     return MaterialApp(
         home: Scaffold(
-            appBar: AppBar(title: Text("Title")), body: ProductManager()));
+            appBar: AppBar(title: Text("Title")),
+            body: ProductManager('Murphy cuisine')));
   }
 }
