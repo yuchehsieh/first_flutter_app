@@ -1,46 +1,48 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(DogApp());
-}
+void main() => runApp(MyApp());
 
-class DogApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'My Dog App',
-      home: Scaffold(
-        appBar: AppBar(title: Text('Yellow Lab')),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              DogName('Ricky'),
-              SizedBox(height: 8.0),
-              DogName('Murphy'),
-              SizedBox(height: 8.0),
-              DogName('Hsieh')
-            ],
-          ),
-        ),
-      ),
-    );
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _MyAppState();
   }
 }
 
-class DogName extends StatelessWidget {
-  final String name;
-
-  const DogName(this.name);
+class _MyAppState extends State<MyApp> {
+  List<String> _products = ['Basic cuisine'];
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return DecoratedBox(
-        decoration: BoxDecoration(color: Colors.lightBlueAccent),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(name),
-        ));
+    return MaterialApp(
+        home: Scaffold(
+      appBar: AppBar(title: Text("Title")),
+      body: Column(
+        children: <Widget>[
+          Container(
+              margin: EdgeInsets.all(10.0),
+              child: Center(
+                  child: RaisedButton(
+                      onPressed: () {
+                        setState(() {
+                          _products.add('Advanced cuisine');
+                        });
+                      },
+                      child: Text('Add Item')))),
+          Column(
+              children: _products
+                  .map((element) => Card(
+                          child: Column(
+                        children: <Widget>[
+                          Image.asset('assets/example1.png'),
+                          Text(element)
+                        ],
+                      )))
+                  .toList())
+        ],
+      ),
+    ));
   }
 }
