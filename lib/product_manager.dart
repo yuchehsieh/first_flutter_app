@@ -40,7 +40,8 @@ class _ProductManagerState extends State<ProductManager> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
+      padding: const EdgeInsets.all(8.0),
       children: <Widget>[
         Container(
             margin: EdgeInsets.all(10.0),
