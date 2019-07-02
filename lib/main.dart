@@ -19,8 +19,12 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
+        theme: ThemeData(primaryColor: Colors.amberAccent),
         home: Scaffold(
             appBar: AppBar(title: Text("Title")),
-            body: ProductManager('Murphy cuisine')));
+            // body: ProductManager())); // will use the default value
+            body: ProductManager(
+              startingProduct: 'Murphy cuisine',
+            )));
   }
 }
