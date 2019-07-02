@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './product_manager.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -18,31 +20,6 @@ class _MyAppState extends State<MyApp> {
     // TODO: implement build
     return MaterialApp(
         home: Scaffold(
-      appBar: AppBar(title: Text("Title")),
-      body: Column(
-        children: <Widget>[
-          Container(
-              margin: EdgeInsets.all(10.0),
-              child: Center(
-                  child: RaisedButton(
-                      onPressed: () {
-                        setState(() {
-                          _products.add('Advanced cuisine');
-                        });
-                      },
-                      child: Text('Add Item')))),
-          Column(
-              children: _products
-                  .map((element) => Card(
-                          child: Column(
-                        children: <Widget>[
-                          Image.asset('assets/example1.png'),
-                          Text(element)
-                        ],
-                      )))
-                  .toList())
-        ],
-      ),
-    ));
+            appBar: AppBar(title: Text("Title")), body: ProductManager()));
   }
 }
